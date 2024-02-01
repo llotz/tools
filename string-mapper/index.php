@@ -2,6 +2,7 @@
 <head>
 	<title>🖹 string mapper</title>
 	<?include("../meta.php");?>
+	<style>.highlight{ background-color: yellow; }</style>
 	<script>
 	function clearAll(){
 		document.getElementById('a').value="";
@@ -39,6 +40,32 @@
 	function takePreset(preset){
 		document.getElementById("input").value = document.getElementById(preset).value;
 	}
+		
+	function searchbina(){
+		let a = document.getElementById('a').value.split("\n");
+		let b = document.getElementById('b').value.split("\n");
+		let result = "";
+		let count = 0;
+		a.forEach(function(aline,index){
+			if(b.includes(aline)){
+				result +="<span class='highlight'>"+aline+"</span><br/>";
+				count++;
+			}
+			else
+				result +=aline+"<br/>";
+		});
+		
+		document.getElementById('searchresult').innerHTML = count+" in "+a.length+" found<br/>------------------<br/>"+result+"------------------";
+	}
+		
+	function countlines(c){
+		document.getElementById('count'+c).innerHTML = 	document.getElementById(c).value.split("\n").length;
+	}
+		
+	window.onload = function foo(){
+	countlines('a');
+	countlines('b');
+	};
 	</script>
 </head>
 
@@ -47,19 +74,21 @@
 <div style="display:flex">
 	<div>
 		variable a:<br>
-		<textarea id="a" name="a" rows="25" cols="15">
+		<textarea id="a" name="a" rows="25" cols="15" oninput="countlines('a')">
 first
 second
 third
 </textarea>
+lines:<div id="counta">0</div>
 	</div>
 	<div>
 		variable b:<br>
-		<textarea id="b" name="b" rows="25" cols="15">
+		<textarea id="b" name="b" rows="25" cols="15" oninput="countlines('b')">
 tsrif
 dnoces
 driht
 </textarea>
+lines:<div id="countb">0</div>
 	</div>
 	<div>
 		<div style="display:flex; justify-content:space-between">
@@ -78,7 +107,12 @@ driht
 		<textarea id="result" name="result" rows="20" cols="80"></textarea>
 	</div>
 </div>
-<br><br><br>
+<button id="searchbina" onclick="searchbina();">🔎 Search b in a</button>
+<br>
+<div id="searchresult">
+	
+</div>
+<br>
 Rules:<br>
 - Variables are <b>%a%</b> and <b>%b%</b><br>
 - if you dont need <b>%b%</b>, ignore the input field, don't use the variable.<br>
