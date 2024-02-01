@@ -77,8 +77,7 @@
 		<textarea id="a" name="a" rows="25" cols="15" oninput="countlines('a')">
 first
 second
-third
-</textarea>
+third</textarea>
 lines:<div id="counta">0</div>
 	</div>
 	<div>
@@ -86,8 +85,7 @@ lines:<div id="counta">0</div>
 		<textarea id="b" name="b" rows="25" cols="15" oninput="countlines('b')">
 tsrif
 dnoces
-driht
-</textarea>
+driht</textarea>
 lines:<div id="countb">0</div>
 	</div>
 	<div>
