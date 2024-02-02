@@ -48,7 +48,8 @@
 		let count = 0;
 		a.forEach(function(aline,index){
 			if(b.includes(aline)){
-				result +="<span class='highlight'>"+aline+"</span><br/>";
+				let idx = b.indexOf(aline)+1
+				result +="<span class='highlight'>"+aline+"</span> <-- Line "+idx+"<br/>";
 				count++;
 			}
 			else
@@ -60,6 +61,10 @@
 		
 	function countlines(c){
 		document.getElementById('count'+c).innerHTML = 	document.getElementById(c).value.split("\n").length;
+	}
+		
+	function clearSearchResult(){
+		document.getElementById('searchresult').innerHTML = "";
 	}
 		
 	window.onload = function foo(){
@@ -106,16 +111,20 @@ lines:<div id="countb">0</div>
 	</div>
 </div>
 <button id="searchbina" onclick="searchbina();">🔎 Search b in a</button>
+<button id="clearsearchresult" onclick="clearSearchResult();">❌ clear search result</button>
 <br>
 <div id="searchresult">
 	
 </div>
 <br>
-Rules:<br>
+<b>How To:</b><br>
 - Variables are <b>%a%</b> and <b>%b%</b><br>
 - if you dont need <b>%b%</b>, ignore the input field, don't use the variable.<br>
 <br>
-Use Cases:<br>
+<b>Search</b><br>
+Lists all occurences of <b>%b%</b> in <b>%a%</b><br>
+<br>
+<b>Templates:</b><br>
 <br>Mapping SQL <b>IN('a', 'b', ...)</b> content
 <br><div>Preset:<input id="preset1" type="text" value="'%a%',"/><button onclick="takePreset('preset1')">take</button></div>
 <br>Mapping SQL <b>UPDATE table SET variable='value', variable2='value2'</b> Values to Fieldnames
