@@ -56,7 +56,7 @@
 				result +=aline+"<br/>";
 		});
 		
-		document.getElementById('searchresult').innerHTML = count+" in "+a.length+" found<br/>------------------<br/>"+result+"------------------";
+		document.getElementById('searchresult').innerHTML = "<br/>from "+b.length+"(b) found "+count+" in "+a.length+"(a)<br/>------------------<br/>"+result+"------------------";
 	}
 		
 	function countlines(c){
