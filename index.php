@@ -10,3 +10,4 @@ Don't expect them to be killer but they made my life easier so maybe they can he
 No input is logged here. I promise. And <a href="https://github.com/llotz/tools/">you can make sure</a> (github link)<br>
 <br>
 <div><a href="string-mapper">string mapper</a> - map values into strings.</div>
+<div><a href="list-worker">list-worker</a> - manipulate lists of strings</div>
